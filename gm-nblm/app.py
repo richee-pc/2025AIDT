@@ -20,10 +20,10 @@ st.set_page_config(
 _RELEASE = True
 if not _RELEASE:
     # 로컬에서 실행할 경우의 경로 (필요시 사용)
-    _INDEX_HTML = os.path.join(os.path.dirname(__file__), "index.html")
+    _INDEX_HTML = os.path.join(os.path.dirname(__file__), "./htmls/index.html")
 else:
     # 배포 환경에서의 경로
-    _INDEX_HTML = os.path.join(os.path.dirname(__file__), "index.html")
+    _INDEX_HTML = os.path.join(os.path.dirname(__file__), "./htmls/index.html")
 
 
 # 웹페이지를 구성하는 HTML 파일을 엽니다.
