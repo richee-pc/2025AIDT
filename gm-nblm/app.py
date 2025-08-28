@@ -10,7 +10,7 @@ import os
 # page_title은 브라우저 탭에 표시될 제목입니다.
 # layout="wide"는 콘텐츠를 화면 전체 너비로 표시하도록 설정합니다.
 st.set_page_config(
-    page_title="교사용 AI 활용 연수 워크숍",
+    page_title="🍎생성형 AI 활용 연수 학습 웹🍎",
     layout="wide"
 )
 
@@ -38,7 +38,7 @@ except FileNotFoundError:
 
 # --- Streamlit에 HTML 렌더링 ---
 # st.markdown을 사용하여 제목을 표시합니다. unsafe_allow_html=True를 통해 HTML 태그를 사용할 수 있습니다.
-st.markdown("<h1>교사용 AI 활용 최종판: 제미나이 & 노트북LM 워크숍</h1>", unsafe_allow_html=True)
+st.markdown("<h1>🍎생성형 AI 활용 연수 학습 웹🍎</h1>", unsafe_allow_html=True)
 st.markdown("---")
 
 # components.html을 사용하여 읽어온 HTML 코드를 앱에 표시합니다.
@@ -48,4 +48,4 @@ components.html(html_code, height=1200, scrolling=True)
 
 # --- 푸터(Footer) ---
 st.markdown("---")
-st.markdown("Made with ❤️ by AI for Teachers")
+st.markdown("Made with 🩵🐰🩵 by AI for Teachers")
