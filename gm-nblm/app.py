@@ -62,14 +62,19 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# --- HTML 파일 로드 함수 ---
+# --- HTML 파일 로드 함수 (오류 수정된 부분) ---
 def load_html(path):
     """지정된 경로의 HTML 파일을 읽어 그 내용을 반환하는 함수"""
-    if not os.path.exists(path):
-        st.error(f"'{os.path.basename(path)}' 파일을 찾을 수 없습니다. '{os.path.dirname(path)}' 폴더에 파일이 있는지 확인해주세요.")
+    # 현재 스크립트(app.py) 파일의 디렉토리 경로를 가져옵니다.
+    script_dir = os.path.dirname(__file__)
+    # 스크립트 디렉토리와 상대 경로를 합쳐 파일의 절대 경로를 만듭니다.
+    abs_path = os.path.join(script_dir, path)
+    
+    if not os.path.exists(abs_path):
+        st.error(f"'{os.path.basename(path)}' 파일을 찾을 수 없습니다. 경로를 확인해주세요: {abs_path}")
         return None # 오류 발생 시 None 반환
     try:
-        with open(path, 'r', encoding='utf-8') as f:
+        with open(abs_path, 'r', encoding='utf-8') as f:
             return f.read()
     except Exception as e:
         st.error(f"파일을 읽는 중 오류가 발생했습니다: {e}")
@@ -80,14 +85,15 @@ def load_html(path):
 st.markdown('<p class="main-title">🍎 생성형 AI 활용 연수 학습 웹 🍎</p>', unsafe_allow_html=True)
 
 # 안내 메시지
-# st.info("안녕하세요, 선생님! 🐰 아래 탭에서 원하시는 연수 자료를 선택해서 학습을 시작해보세요! 각 탭을 클릭하면 해당 자료가 나타납니다.", icon="�")
+st.info("안녕하세요, 선생님! 🐰 아래 탭에서 원하시는 연수 자료를 선택해서 학습을 시작해보세요! 각 탭을 클릭하면 해당 자료가 나타납니다.", icon="💡")
 
 # --- 탭(Tab) 메뉴로 페이지 분리 ---
-tab1, tab2 = st.tabs(["🎨 기존 연수 자료", "✨ Claude AI 활용 매뉴얼"])
+tab1, tab2 = st.tabs(["🎨 구글 Gemini & Notebooklm 활용 매뉴얼", "✨ Claude AI 활용 매뉴얼"])
 
 # '기존 연수 자료' 탭
 with tab1:
-    html_code_1 = load_html('./htmls/index.html')
+    # 이제 상대 경로를 사용해도 절대 경로로 변환되어 파일을 잘 찾습니다.
+    html_code_1 = load_html('htmls/index.html')
     if html_code_1:
         components.html(html_code_1, height=1200, scrolling=True)
     else:
@@ -95,7 +101,7 @@ with tab1:
 
 # 'Claude AI 활용 매뉴얼' 탭
 with tab2:
-    html_code_2 = load_html('./htmls/index2.html')
+    html_code_2 = load_html('htmls/index2.html')
     if html_code_2:
         components.html(html_code_2, height=1200, scrolling=True)
     else:
