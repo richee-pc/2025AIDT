@@ -80,7 +80,7 @@ def load_html(path):
 st.markdown('<p class="main-title">🍎 생성형 AI 활용 연수 학습 웹 🍎</p>', unsafe_allow_html=True)
 
 # 안내 메시지
-st.info("안녕하세요, 선생님! 🐰 아래 탭에서 원하시는 연수 자료를 선택해서 학습을 시작해보세요! 각 탭을 클릭하면 해당 자료가 나타납니다.", icon="�")
+# st.info("안녕하세요, 선생님! 🐰 아래 탭에서 원하시는 연수 자료를 선택해서 학습을 시작해보세요! 각 탭을 클릭하면 해당 자료가 나타납니다.", icon="�")
 
 # --- 탭(Tab) 메뉴로 페이지 분리 ---
 tab1, tab2 = st.tabs(["🎨 기존 연수 자료", "✨ Claude AI 활용 매뉴얼"])
