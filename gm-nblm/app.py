@@ -105,4 +105,3 @@ with tab2:
 # --- 푸터(Footer) ---
 st.markdown("---")
 st.markdown("<div style='text-align: center; font-family: \"Gowun Dodum\", sans-serif;'>Made with 🩵🐰🩵 by AI for Teachers</div>", unsafe_allow_html=True)
-�
