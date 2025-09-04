@@ -88,7 +88,7 @@ st.markdown('<p class="main-title">🍎 생성형 AI 활용 연수 학습 웹 �
 st.info("안녕하세요, 선생님! 🐰 아래 탭에서 원하시는 연수 자료를 선택해서 학습을 시작해보세요! 각 탭을 클릭하면 해당 자료가 나타납니다.", icon="💡")
 
 # --- 탭(Tab) 메뉴로 페이지 분리 ---
-tab1, tab2 = st.tabs(["🎨 구글 Gemini & Notebooklm 활용 매뉴얼", "✨ Claude AI 활용 매뉴얼"])
+tab1, tab2, tab3 = st.tabs(["🎨 기존 연수 자료", "✨ Claude AI 활용 매뉴얼", "🏫 AI 활용 학교 현장 적용"])
 
 # '기존 연수 자료' 탭
 with tab1:
@@ -107,7 +107,16 @@ with tab2:
     else:
         st.warning("Claude AI 활용 매뉴얼(index2.html)을 불러올 수 없습니다.")
 
+# 'AI 활용 학교 현장 적용' 탭
+with tab3:
+    html_code_3 = load_html('htmls/index3.html')
+    if html_code_3:
+        components.html(html_code_3, height=1200, scrolling=True)
+    else:
+        st.warning("AI 활용 학교 현장 적용(index3.html)을 불러올 수 없습니다.")
+
 
 # --- 푸터(Footer) ---
 st.markdown("---")
 st.markdown("<div style='text-align: center; font-family: \"Gowun Dodum\", sans-serif;'>Made with 🩵🐰🩵 by AI for Teachers</div>", unsafe_allow_html=True)
+
