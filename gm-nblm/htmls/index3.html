@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🫐AI 활용 학교 현장 적용: 반복 업무 10배 줄이기🫐</title>
+    <title>AI 활용 학교 현장 적용: 반복 업무 10배 줄이기</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Sunflower:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        @font-face {
-            font-family: 'Dovemayo_gothic';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/Dovemayo_gothic.woff2') format('woff2');
-            font-weight: normal;
-            font-style: normal;
-        }
         body {
-            font-family: 'Dovemayo_gothic', 'Pretendard', sans-serif;
+            font-family: 'IBM Plex Sans KR', sans-serif;
             background-color: #F8FAFC; /* Slate 50 */
             word-break: keep-all;
         }
@@ -28,27 +22,17 @@
             font-family: 'Sunflower', sans-serif;
             font-weight: 700;
         }
-        .accordion-title {
-            cursor: pointer;
-            transition: background-color 0.2s ease-in-out;
+        .content-card {
+            background-color: white;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid #E2E8F0;
         }
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        .accordion-item.active .accordion-content {
-            max-height: 5000px; /* 충분히 큰 값 */
-            padding-top: 2.5rem;
-            padding-bottom: 2.5rem;
-        }
-        .accordion-item.active .accordion-arrow {
-            transform: rotate(180deg);
-        }
-        .accordion-arrow {
-            transition: transform 0.3s ease-in-out;
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
         }
         .prompt-box {
             background-color: #F8FAFC;
@@ -64,6 +48,27 @@
             border-left: 4px solid #FACC15;
             padding: 1.5rem;
             border-radius: 0.75rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            background-color: white;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+            color: #1E293B; /* Slate 800 */
+        }
+        .section-header .icon-wrapper {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 9999px;
+            font-size: 1.5rem;
         }
         .copy-button {
             position: absolute;
@@ -112,17 +117,14 @@
             <p class="mt-8 max-w-2xl mx-auto text-xl text-gray-500 font-medium">"선생님의 소중한 시간을 교육의 본질에 더 가까이"</p>
         </header>
 
-        <div class="space-y-8">
-            <!-- Accordion Item: Opening -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-sky-100 text-sky-600 text-xl">🎯</div>
-                        <span>오늘의 연수 목표</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+        <div class="space-y-20">
+            <!-- Opening Section -->
+            <section id="opening">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-sky-100 text-sky-600">🎯</div>
+                    <span class="font-sunflower">오늘의 연수 목표</span>
                 </div>
-                <div class="accordion-content px-10 text-lg">
+                <div class="mt-6 text-lg content-card">
                     <p class="mb-6 font-medium">안녕하세요, 선생님! 오늘 연수가 끝나면, 선생님께서는 다음과 같은 놀라운 AI 활용 능력을 갖게 되실 겁니다.</p>
                     <ul class="space-y-4 list-disc list-inside text-gray-800">
                         <li><strong class="text-cyan-600 font-semibold">나만의 AI 비서 만들기:</strong> NotebookLM으로 학교 자료를 학습시켜 업무 효율을 극대화할 수 있습니다.</li>
@@ -134,18 +136,15 @@
                     </ul>
                     <p class="mt-8 font-semibold text-center text-lg text-sky-700">반복 업무는 AI에게 맡기고, 선생님의 소중한 시간은 우리 아이들에게 더 많이 사용해 주세요!</p>
                 </div>
-            </div>
+            </section>
 
-            <!-- Accordion Item: Part 1 NotebookLM -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 text-xl">🤖</div>
-                        <span>Part 1. 나만의 AI 업무 비서 만들기</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            <!-- Part 1: NotebookLM -->
+            <section id="part1">
+                <div class="section-header">
+                     <div class="icon-wrapper bg-cyan-100 text-cyan-600">🤖</div>
+                     <span class="font-sunflower">Part 1. 나만의 AI 업무 비서 만들기</span>
                 </div>
-                <div class="accordion-content px-10">
+                <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-cyan-50 rounded-lg border-l-4 border-cyan-300">
                         <p class="font-semibold text-cyan-800">핵심 개념: NotebookLM은 <strong class="text-cyan-600">'우리 학교 정보'와 '나의 교육 자료'를 완벽하게 학습한 신입 교사</strong>와 같아요.</p>
                     </blockquote>
@@ -159,7 +158,7 @@
                             <ul class="list-decimal list-inside mt-4 space-y-3 text-gray-700">
                                 <li>위 버튼을 클릭해 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">notebooklm.google.com</code>에 접속하고 구글 계정으로 로그인합니다.</li>
                                 <li><code class="bg-gray-100 text-sm px-2 py-1 rounded-md">[+ 새 노트북]</code>을 클릭하고, '2024년 1학년 담임 업무'와 같이 용도를 알아보기 쉽게 이름을 지어줍니다.</li>
-                                <li><code class="bg-gray-100 text-sm px-2 py-1 rounded-md">[+ 소스 추가]</code>를 클릭해 PDF, HWP, 구글 드라이브 문서 등 AI 비서가 학습할 자료를 업로드합니다.</li>
+                                <li><code class="bg-gray-100 text-sm px-2 py-1 rounded-md">[+ 소스 추가]</code>를 클릭해 PDF, HWP, 구글 드라이브 문서, **유튜브 링크** 등 AI 비서가 학습할 자료를 업로드합니다.</li>
                             </ul>
                         </div>
                         <div>
@@ -174,10 +173,12 @@
                     <div class="mt-12">
                         <h3 class="text-2xl font-semibold mb-6 text-gray-800">심화 실습: 더 다양한 현장 프롬프트 예시</h3>
                         <div class="space-y-6">
-                             <p class="font-semibold text-base">프롬프트 예시 (회의록 요약 및 할 일 추출)</p>
-                            <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>업로드된 '9월 1주차 학년부 회의록' 문서를 요약하고, 이 회의에서 결정된 사항과 각 담당자가 해야 할 일을 표 형식으로 정리해 줘.</div>
-                             <p class="font-semibold text-base">프롬프트 예시 (교육청 공문 처리)</p>
-                            <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>업로드된 모든 공문 중에서 '디지털 선도학교'와 관련된 공문을 모두 찾아서, 각 공문의 핵심 내용과 제출해야 할 서류 목록, 제출 기한을 정리해 줘.</div>
+                             <p class="font-semibold text-base">프롬프트 예시 (유튜브 영상 요약)</p>
+                            <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>업로드된 'EBS 클립영상: 양자역학의 개념' 유튜브 영상의 스크립트를 바탕으로, 핵심 개념 3가지를 정리하고, 수업 도입부에 학생들의 흥미를 유발할 수 있는 질문 2가지를 만들어 줘.</div>
+                             <p class="font-semibold text-base">프롬프트 예시 (여러 논문 비교 분석)</p>
+                            <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>업로드된 3개의 '인공지능 교육' 관련 논문들을 비교 분석하고, 각 논문에서 공통적으로 강조하는 AI 교육의 방향성과 각 논문만의 차별적인 주장을 표로 정리해 줘.</div>
+                            <p class="font-semibold text-base">프롬프트 예시 (학습 자료 및 평가 문항 제작)</p>
+                            <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>업로드된 '고등 국어 비문학 지문'을 바탕으로, 학생들이 내용 이해도를 스스로 점검할 수 있는 형성평가 문제 5개를 객관식으로 만들어 줘. 각 문제의 정답과 친절한 해설도 포함해 줘.</div>
                         </div>
                     </div>
                     <div class="mt-8 pro-tip">
@@ -185,18 +186,15 @@
                         <p class="mt-2 text-amber-900"><strong>'노트북'을 주제별로 분리해주세요!</strong> '1학년 생기부', '2학년 상담', '학교 공문' 처럼 나누면 AI가 더 똑똑하게 답변해요.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Accordion Item: Part 2 Gemini -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 text-xl">✨</div>
-                        <span>Part 2. AI 글쓰기 마법사</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            <!-- Part 2: Gemini -->
+            <section id="part2">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-indigo-100 text-indigo-600">✨</div>
+                    <span class="font-sunflower">Part 2. AI 글쓰기 마법사</span>
                 </div>
-                <div class="accordion-content px-10">
+                 <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-300"><p class="font-semibold text-indigo-800"><strong>핵심 개념:</strong> Gemini는 <strong class="text-indigo-600">어떤 '페르소나(역할)'로, 어떤 '맥락(상황)'에 맞춰 글을 써야 하는지</strong> 알려주면, 상황에 딱 맞는 글을 만들어내는 '인공지능 작가'랍니다.</p></blockquote>
                     <div class="text-center my-8"><a href="https://gemini.google.com" target="_blank" class="link-button">Gemini 실습하러 가기 →</a></div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">실습1: 가정통신문 3가지 버전으로 1분 만에 뚝딱!</h3>
@@ -223,18 +221,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Accordion Item: Part 3 Notion -->
-             <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-slate-100 text-slate-600 text-xl">📋</div>
-                        <span>Part 3. 자동화 시스템 구축</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            </section>
+            
+            <!-- Part 3: Notion -->
+            <section id="part3">
+                <div class="section-header">
+                     <div class="icon-wrapper bg-slate-100 text-slate-600">📋</div>
+                     <span class="font-sunflower">Part 3. 자동화 시스템 구축</span>
                 </div>
-                <div class="accordion-content px-10">
+                 <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-slate-50 rounded-lg border-l-4 border-slate-300"><p class="font-semibold text-slate-800"><strong>핵심 개념:</strong> Notion은 모든 AI 작업을 한곳에 모으는 <strong class="text-slate-600">'나만의 지능형 컨트롤 타워'</strong>예요. 키워드만 입력하면 상담일지가 자동으로 완성되는 '업무 파이프라인'을 만들 수 있답니다.</p></blockquote>
                     <div class="text-center my-8"><a href="https://notion.so" target="_blank" class="link-button">Notion 실습하러 가기 →</a></div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">실습: 키워드만으로 상담일지 자동 완성하기</h3>
@@ -250,18 +245,15 @@
                     </div>
                     <div class="mt-12"><h3 class="text-2xl font-semibold mb-6 text-gray-800">심화 실습: AI로 학교 행사 기획하기</h3><p>Notion 데이터베이스와 AI를 결합하면, 복잡한 학교 행사를 체계적으로 관리할 수 있습니다. '학교 축제 준비' 페이지를 만들고, 아래 프롬프트를 AI에게 요청해 보세요. 순식간에 완벽한 업무 분장표와 체크리스트가 만들어집니다.</p><div class="prompt-box mt-6"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>'2025학년도 학교 축제'를 기획하고 있어. 성공적인 축제를 위해 필요한 업무를 "총괄팀, 무대공연팀, 체험부스팀, 홍보팀, 안전관리팀"으로 나누고, 각 팀이 해야 할 핵심적인 역할과 구체적인 실행 항목(체크리스트)을 5개 이상씩 표 형식으로 제안해 줘.</div></div>
                 </div>
-            </div>
-
-            <!-- Accordion Item: Part 4 Google Workspace -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-amber-100 text-amber-600 text-xl">🎨</div>
-                        <span>Part 4. 구글 워크스페이스 완전 정복</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            </section>
+            
+            <!-- Part 4: Google Workspace -->
+            <section id="part4">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-amber-100 text-amber-600">🎨</div>
+                    <span class="font-sunflower">Part 4. 구글 워크스페이스 완전 정복</span>
                 </div>
-                <div class="accordion-content px-10">
+                <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-300"><p class="font-semibold text-amber-800"><strong>핵심 개념:</strong> Gemini가 구글 문서, 슬라이드, 시트 속에 쏙! 선생님의 아이디어를 바로 결과물로 만들어주는 <strong class="text-amber-600">'만능 보조교사'</strong>가 됩니다.</p></blockquote>
                     <div class="text-center my-8"><a href="https://docs.google.com" target="_blank" class="link-button">Google Docs 실습하러 가기 →</a></div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">구글 도구별 프롬프트 예시</h3>
@@ -273,18 +265,15 @@
                         <div><h4 class="font-semibold text-lg text-gray-700">4. Gmail</h4><div class="prompt-box mt-4"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>내일 교과 협의회 시간 장소를 다시 안내하는 전체 메일을 전문적이고 간결하게 작성해 줘.</div></div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Accordion Item: Part 5 Google Forms -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-purple-100 text-purple-600 text-xl">📊</div>
-                        <span>심화. 제미나이로 구글 폼 1분 만에 만들기</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            <!-- Part 5: Google Forms -->
+            <section id="part5">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-purple-100 text-purple-600">📊</div>
+                    <span class="font-sunflower">심화. 제미나이로 구글 폼 1분 만에 만들기</span>
                 </div>
-                <div class="accordion-content px-10">
+                <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-300"><p class="font-semibold text-purple-800"><strong>핵심 개념:</strong> 더 이상 문항을 하나하나 입력할 필요가 없어요. Gemini에게 <strong class="text-purple-600">주제와 형식을 알려주면, 퀴즈, 설문지, 신청서가 뚝딱!</strong></p></blockquote>
                     <div class="mt-10 p-6 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
                         <h4 class="font-semibold text-lg text-yellow-800 flex items-center gap-2">
@@ -313,18 +302,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Accordion Item: Part 6 AI Utilization Specification -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-red-100 text-red-600 text-xl">📝</div>
-                        <span>Part 6. AI 시대의 학생 평가하기</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            <!-- Part 6: AI Utilization Specification -->
+            <section id="part6">
+                 <div class="section-header">
+                     <div class="icon-wrapper bg-red-100 text-red-600">📝</div>
+                     <span class="font-sunflower">Part 6. AI 시대의 학생 평가하기</span>
                 </div>
-                <div class="accordion-content px-10">
+                <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-red-50 rounded-lg border-l-4 border-red-300"><p class="font-semibold text-red-800"><strong>핵심 개념:</strong> 'AI 활용 명세서'는 부정행위를 막기 위한 '자술서'가 아닌, 학생의 <strong class="text-red-600">학습 과정과 성찰을 기록하는 '생각하는 문서'</strong>입니다. 교사는 결과물뿐만 아니라 학생의 고민과 선택 과정을 평가할 수 있습니다.</p></blockquote>
                     <div class="mt-10"><h3 class="text-2xl font-semibold mb-6 text-gray-800">AI 활용 명세서, 무엇을 담아야 할까?</h3>
                         <div class="grid md:grid-cols-2 gap-8">
@@ -341,18 +327,15 @@
 **3. 주요 활용 내용 (가장 중요했던 프롬프트 1~2개):** **4. AI의 답변 중 유용했던 점:** **5. AI의 답변 중 비판적으로 검토/수정한 내용:** (AI 답변의 한계, 오류, 편향성 등)
 **6. 최종 결과물에 AI가 기여한 부분 (구체적으로):** **7. AI 활용을 통해 배우고 느낀 점:** </div></div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Accordion Item: Part 7 Chatbot -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-green-100 text-green-600 text-xl">🎓</div>
-                        <span>Part 7. 우리 학교 전용 챗봇 만들기</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+            <!-- Part 7: Chatbot -->
+            <section id="part7">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-green-100 text-green-600">🎓</div>
+                    <span class="font-sunflower">Part 7. 우리 학교 전용 챗봇 만들기</span>
                 </div>
-                <div class="accordion-content px-10">
+                 <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-green-50 rounded-lg border-l-4 border-green-300"><p class="font-semibold text-green-800"><strong>핵심 개념:</strong> NotebookLM을 공유하면, 단순한 개인 비서를 넘어 <strong class="text-green-600">학교의 모든 정보를 24시간 안내하는 'AI 행정실'</strong>이 됩니다.</p></blockquote>
                     <div class="text-center my-8"><a href="https://notebooklm.google.com" target="_blank" class="link-button">학교 챗봇 만들러 가기 →</a></div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">단계별 챗봇 구축 가이드</h3>
@@ -366,18 +349,15 @@
                         <p class="mt-2 text-amber-900"><strong>챗봇의 정보는 살아있어야 해요!</strong> 학사일정이나 규정이 바뀔 때마다 NotebookLM에 업로드된 소스 문서를 주기적으로 업데이트해주세요.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-             <!-- Accordion Item: One More Thing -->
-            <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
-                    <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
-                        <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-pink-100 text-pink-600 text-xl">🎁</div>
-                        <span>One More Thing... 나만의 GPT 만들기</span>
-                    </div>
-                    <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+             <!-- One More Thing -->
+            <section id="one-more-thing">
+                <div class="section-header">
+                    <div class="icon-wrapper bg-pink-100 text-pink-600">🎁</div>
+                    <span class="font-sunflower">One More Thing... 나만의 GPT 만들기</span>
                 </div>
-                <div class="accordion-content px-10">
+                 <div class="mt-6 content-card">
                     <blockquote class="p-4 bg-pink-50 rounded-lg border-l-4 border-pink-300"><p class="font-semibold text-pink-800"><strong>핵심 개념:</strong> 오늘 배운 내용을 응용하여, 특정 목적에 완전히 특화된 <strong class="text-pink-600">'나만의 맞춤형 AI 비서'</strong>를 만들 수 있습니다. 예를 들어, '생활기록부 세특 작성 전문 GPT', '수준별 수학 문제 출제 전문 GPT'처럼요!</p></blockquote>
                     <div class="text-center my-8"><a href="https://chat.openai.com/gpts/discovery" target="_blank" class="link-button">나만의 GPT 만들러 가기 →</a></div>
                     <h3 class="text-2xl font-semibold mb-6 text-gray-800">"세특 작성 비서" GPT 만들기 예시</h3>
@@ -397,15 +377,15 @@
 3.  **[종합 의견]** (학생의 성장 가능성에 대한 종합적 평가)
                     </div>
                 </div>
-            </div>
+            </section>
 
             <!-- Closing Section -->
             <section id="closing">
-                <div class="content-card border-t-4 border-rose-400">
-                     <div class="section-title mb-8">
-                         <div class="icon-wrapper bg-rose-100 text-rose-600">👋</div>
-                        <span>마무리: AI는 최고의 파트너!</span>
-                    </div>
+                <div class="section-header">
+                     <div class="icon-wrapper bg-rose-100 text-rose-600">👋</div>
+                    <span class="font-sunflower">마무리: AI는 최고의 파트너!</span>
+                </div>
+                <div class="mt-6 content-card">
                     <p class="leading-relaxed">오늘 우리는 AI로 나만의 전문가 비서를 만들고, 글쓰기 시간을 줄이고, 모든 과정을 자동화하는 시스템, 그리고 학교 구성원 모두를 위한 챗봇까지 만들어봤어요!</p>
                     <p class="mt-4 leading-relaxed">가장 중요한 점은, <strong class="font-semibold text-rose-500">AI는 선생님을 대체하는 게 아니라, 선생님이 교육의 본질에 더 집중하도록 돕는 최고의 파트너</strong>라는 사실이에요. 반복 업무는 AI에게 맡기고, 소중한 시간과 에너지를 우리 학생들에게 더 많이 사용해주세요!</p>
                     <p class="mt-4 leading-relaxed font-semibold">궁금한 점이 있다면 편하게 질문해주세요!</p>
