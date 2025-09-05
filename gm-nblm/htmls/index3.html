@@ -9,8 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&family=Sunflower:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Dovemayo_gothic';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/Dovemayo_gothic.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
-            font-family: 'IBM Plex Sans KR', sans-serif;
+            font-family: 'Dovemayo_gothic', 'Pretendard', sans-serif;
             background-color: #F8FAFC; /* Slate 50 */
             word-break: keep-all;
         }
@@ -298,14 +304,15 @@
                     <ul class="list-decimal list-inside mt-4 space-y-3 text-gray-700">
                         <li>Google Forms에서 새 양식을 엽니다.</li>
                         <li>화면 하단 또는 측면에 있는 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">✨ 제미나이 아이콘</code>을 클릭합니다.</li>
-                        <li>나타나는 프롬프트 창에 아래 예시처럼 만들고 싶은 양식의 내용을 구체적으로 입력하고 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">[만들기]</code> 버튼을 누릅니다.</li>
+                        <li>나타나는 프롬프트 창에 아래 예시처럼 만들고 싶은 양식의 내용을 <strong class="text-red-500">반드시 영어로 입력</strong>합니다.</li>
+                        <li><strong class="text-blue-500">꿀팁!</strong> 폼의 질문과 답변을 한글로 받고 싶다면, 프롬프트 마지막에 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">Please output all text in Korean.</code> 이라는 문장을 추가해주세요.</li>
                     </ul>
                     <div class="mt-12">
-                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">상황별 프롬프트 예시</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">상황별 프롬프트 예시 (영문)</h3>
                         <div class="space-y-6">
-                            <p class="font-semibold text-base">프롬프트 예시 (형성평가 퀴즈)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>중학교 1학년 과학 '지구계의 구성 요소' 단원 형성평가 퀴즈를 만들어 줘. 객관식 4문항, 단답형 1문항으로 구성하고, 각 객관식 문항은 4개의 보기를 포함해 줘. 정답도 반드시 표시해 줘.</div>
-                            <p class="font-semibold text-base">프롬프트 예시 (학부모 만족도 조사)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>'2025학년도 1학기 학부모 상담주간' 운영에 대한 만족도 설문지를 만들어 줘. '상담 시간', '상담 내용', '운영 방식', '건의사항' 항목을 포함하고, 리커트 5점 척도와 서술형 문항을 적절히 사용해 줘.</div>
-                            <p class="font-semibold text-base">프롬프트 예시 (방과후학교 신청서)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>2025학년도 2학기 방과후학교 'AI 코딩 교실' 수강 신청서를 만들어 줘. '학생 이름', '학년/반/번호', '연락처', '개인정보 활용 동의' 항목을 포함하고, 필수 질문으로 설정해 줘.</div>
+                            <p class="font-semibold text-base">프롬프트 예시 (형성평가 퀴즈)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>Create a formative assessment quiz for 1st-grade middle school science about the 'Components of the Earth System' unit. It should include 4 multiple-choice questions with 4 options each, and 1 short-answer question. Please mark the correct answers. All questions, options, and answers must be in Korean.</div>
+                            <p class="font-semibold text-base">프롬프트 예시 (학부모 만족도 조사)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>Create a satisfaction survey for the '1st Semester Parent-Teacher Conference Week of 2025'. Include items for 'Consultation Time', 'Consultation Content', 'Operational Method', and 'Suggestions'. Use a mix of 5-point Likert scale questions and open-ended questions. All text in the form must be in Korean.</div>
+                            <p class="font-semibold text-base">프롬프트 예시 (방과후학교 신청서)</p><div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>Create an application form for the 'AI Coding Class' after-school program for the 2nd semester of 2025. Include fields for 'Student Name', 'Grade/Class/Number', 'Contact Number', and 'Consent to Use of Personal Information'. Set all questions as required. All text in the form must be in Korean.</div>
                         </div>
                     </div>
                 </div>
@@ -313,89 +320,133 @@
 
             <!-- Part 6: AI Utilization Specification -->
             <section id="part6">
-                 <div class="section-header">
-                     <div class="icon-wrapper bg-red-100 text-red-600">📝</div>
-                     <span class="font-sunflower">Part 6. AI 시대의 학생 평가하기</span>
-                </div>
-                <div class="mt-6 content-card">
-                    <blockquote class="p-4 bg-red-50 rounded-lg border-l-4 border-red-300"><p class="font-semibold text-red-800"><strong>핵심 개념:</strong> 'AI 활용 명세서'는 부정행위를 막기 위한 '자술서'가 아닌, 학생의 <strong class="text-red-600">학습 과정과 성찰을 기록하는 '생각하는 문서'</strong>입니다. 교사는 결과물뿐만 아니라 학생의 고민과 선택 과정을 평가할 수 있습니다.</p></blockquote>
-                    <div class="mt-10"><h3 class="text-2xl font-semibold mb-6 text-gray-800">AI 활용 명세서, 무엇을 담아야 할까?</h3>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-gray-50 p-6 rounded-lg"><h4 class="font-semibold text-lg text-gray-700">필수 항목</h4><ul class="mt-4 list-disc list-inside space-y-2"><li>사용한 AI 도구</li><li>활용 목적</li><li>구체적인 사용 내용(프롬프트 포함)</li><li>AI 답변을 수정한 내용</li><li>최종 결과에 끼친 영향</li></ul></div>
-                            <div class="bg-gray-50 p-6 rounded-lg"><h4 class="font-semibold text-lg text-gray-700">성찰 항목</h4><ul class="mt-4 list-disc list-inside space-y-2"><li>AI 활용의 어려웠던 점</li><li>AI 답변에 대한 비판적 검토</li><li>배우고 느낀 점/개선점</li></ul></div>
+                <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
+                        <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
+                            <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-red-100 text-red-600 text-xl">📝</div>
+                            <span>Part 6. AI 시대의 학생 평가하기</span>
                         </div>
+                        <div class="accordion-arrow text-2xl text-gray-400">▼</div>
                     </div>
-                    <div class="mt-12"><h3 class="text-2xl font-semibold mb-6 text-gray-800">실습: AI 활용 명세서 템플릿</h3><p>아래 템플릿을 학생들에게 배포하고, 과제 제출 시 명세서도 함께 제출하도록 안내해보세요.</p>
-                    <div class="prompt-box mt-6"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>
+                    <div class="accordion-content px-10">
+                        <blockquote class="p-4 bg-red-50 rounded-lg border-l-4 border-red-300"><p class="font-semibold text-red-800"><strong>핵심 개념:</strong> 'AI 활용 명세서'는 부정행위를 막기 위한 '자술서'가 아닌, 학생의 <strong class="text-red-600">학습 과정과 성찰을 기록하는 '생각하는 문서'</strong>입니다. 교사는 결과물뿐만 아니라 학생의 고민과 선택 과정을 평가할 수 있습니다.</p></blockquote>
+                        <div class="mt-10"><h3 class="text-2xl font-semibold mb-6 text-gray-800">AI 활용 명세서, 무엇을 담아야 할까?</h3>
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="bg-gray-50 p-6 rounded-lg"><h4 class="font-semibold text-lg text-gray-700">필수 항목</h4><ul class="mt-4 list-disc list-inside space-y-2"><li>사용한 AI 도구</li><li>활용 목적</li><li>구체적인 사용 내용(프롬프트 포함)</li><li>AI 답변을 수정한 내용</li><li>최종 결과에 끼친 영향</li></ul></div>
+                                <div class="bg-gray-50 p-6 rounded-lg"><h4 class="font-semibold text-lg text-gray-700">성찰 항목</h4><ul class="mt-4 list-disc list-inside space-y-2"><li>AI 활용의 어려웠던 점</li><li>AI 답변에 대한 비판적 검토</li><li>배우고 느낀 점/개선점</li></ul></div>
+                            </div>
+                        </div>
+                        <div class="mt-12"><h3 class="text-2xl font-semibold mb-6 text-gray-800">실습: AI 활용 명세서 템플릿</h3><p>아래 템플릿을 학생들에게 배포하고, 과제 제출 시 명세서도 함께 제출하도록 안내해보세요.</p>
+                        <div class="mt-8 overflow-hidden rounded-lg border border-gray-200">
+                            <table class="w-full text-left">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th colspan="2" class="px-6 py-4 font-semibold text-gray-800 text-xl">AI 활용 명세서 (기본 템플릿)</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200">
+                                    <tr class="bg-gray-50"><td class="px-6 py-4 font-semibold text-gray-600">과목/과제명:</td><td class="px-6 py-4"></td></tr>
+                                    <tr><td class="px-6 py-4 font-semibold text-gray-600">이름/학년:</td><td class="px-6 py-4"></td></tr>
+                                    <tr class="bg-gray-50"><td class="px-6 py-4 font-semibold text-gray-600">1. 사용한 AI 도구:</td><td class="px-6 py-4 text-gray-500">(예: ChatGPT 4.0, Midjourney)</td></tr>
+                                    <tr><td class="px-6 py-4 font-semibold text-gray-600">2. 활용 목적:</td><td class="px-6 py-4 text-gray-500">(예: 아이디어 구상, 자료 조사, 초안 작성, 문장 교정 등)</td></tr>
+                                    <tr class="bg-gray-50"><td class="px-6 py-4 font-semibold text-gray-600">3. 주요 활용 내용 (가장 중요했던 프롬프트 1~2개):</td><td class="px-6 py-4"></td></tr>
+                                    <tr><td class="px-6 py-4 font-semibold text-gray-600">4. AI의 답변 중 유용했던 점:</td><td class="px-6 py-4"></td></tr>
+                                    <tr class="bg-gray-50"><td class="px-6 py-4 font-semibold text-gray-600">5. AI의 답변 중 비판적으로 검토/수정한 내용:</td><td class="px-6 py-4 text-gray-500">(AI 답변의 한계, 오류, 편향성 등)</td></tr>
+                                    <tr><td class="px-6 py-4 font-semibold text-gray-600">6. 최종 결과물에 AI가 기여한 부분 (구체적으로):</td><td class="px-6 py-4"></td></tr>
+                                    <tr class="bg-gray-50"><td class="px-6 py-4 font-semibold text-gray-600">7. AI 활용을 통해 배우고 느낀 점:</td><td class="px-6 py-4"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-12"><h3 class="text-2xl font-semibold mb-6 text-gray-800">실습: AI 활용 명세서 텍스트 템플릿</h3><p>아래 템플릿을 복사하여 학생들에게 배포하고, 과제 제출 시 명세서도 함께 제출하도록 안내해보세요.</p>
+                        <div class="prompt-box mt-6"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>
 **AI 활용 명세서**
 
 **과목/과제명:** **이름/학년:** **1. 사용한 AI 도구:** (예: Gemini, ChatGPT 4.0)
 **2. 활용 목적:** (예: 아이디어 구상, 자료 조사, 초안 작성 등)
 **3. 주요 활용 내용 (가장 중요했던 프롬프트 1~2개):** **4. AI의 답변 중 유용했던 점:** **5. AI의 답변 중 비판적으로 검토/수정한 내용:** (AI 답변의 한계, 오류, 편향성 등)
 **6. 최종 결과물에 AI가 기여한 부분 (구체적으로):** **7. AI 활용을 통해 배우고 느낀 점:** </div></div>
+                    </div>
                 </div>
             </section>
 
             <!-- Part 7: Chatbot -->
             <section id="part7">
-                <div class="section-header">
-                    <div class="icon-wrapper bg-green-100 text-green-600">🎓</div>
-                    <span class="font-sunflower">Part 7. 우리 학교 전용 챗봇 만들기</span>
-                </div>
-                 <div class="mt-6 content-card">
-                    <blockquote class="p-4 bg-green-50 rounded-lg border-l-4 border-green-300"><p class="font-semibold text-green-800"><strong>핵심 개념:</strong> NotebookLM을 공유하면, 단순한 개인 비서를 넘어 <strong class="text-green-600">학교의 모든 정보를 24시간 안내하는 'AI 행정실'</strong>이 됩니다.</p></blockquote>
-                    <div class="text-center my-8"><a href="https://notebooklm.google.com" target="_blank" class="link-button">학교 챗봇 만들러 가기 →</a></div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">단계별 챗봇 구축 가이드</h3>
-                    <div class="space-y-8">
-                        <div><h4 class="font-semibold text-lg text-green-700">1. 챗봇의 지식 창고 채우기</h4><p class="mt-4 text-gray-700">'우리학교 AI 안내봇'이라는 새 노트북을 만들고, 학교의 모든 공용 문서를 업로드합니다.</p><ul class="list-disc list-inside mt-4 space-y-3 bg-gray-50 p-6 rounded-lg border"><li><strong>필수 자료:</strong> `학사일정표`, `학교생활규정`, `동아리 안내`, `교내 시상 계획`, `급식 식단표`, `도서관 이용 안내` 등</li></ul></div>
-                        <div><h4 class="font-semibold text-lg text-green-700">2. 챗봇 공유하고 함께 사용하기</h4><p class="mt-4 text-gray-700">노트북 우측 상단의 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">공유</code> 버튼을 눌러 '링크가 있는 모든 사용자가 액세스할 수 있음'으로 설정하고, 링크를 복사하여 학교 홈페이지나 학급 알림장에 공유합니다.</p></div>
-                        <div><h4 class="font-semibold text-lg text-green-700">3. 사용자별 맞춤 질문 예시</h4><div class="grid md:grid-cols-2 gap-6 mt-6"><div><p class="font-semibold text-base">선생님용 프롬프트</p><div class="prompt-box mt-2"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>올해 독서 관련 교내 시상 계획을 모두 알려주고, 각 상의 심사 기준을 요약해 줘.</div></div><div><p class="font-semibold text-base">학생/학부모용 프롬프트</p><div class="prompt-box mt-2"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>코딩 동아리에 가입하고 싶은데, 지원 방법과 담당 선생님 성함을 알려주세요.</div></div></div></div>
+                <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
+                        <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
+                            <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-green-100 text-green-600 text-xl">🎓</div>
+                            <span>Part 7. 우리 학교 전용 챗봇 만들기</span>
+                        </div>
+                        <div class="accordion-arrow text-2xl text-gray-400">▼</div>
                     </div>
-                    <div class="mt-8 pro-tip">
-                        <p class="font-semibold text-amber-800 flex items-center gap-2"><span>💡</span><span>Pro-Tip</span></p>
-                        <p class="mt-2 text-amber-900"><strong>챗봇의 정보는 살아있어야 해요!</strong> 학사일정이나 규정이 바뀔 때마다 NotebookLM에 업로드된 소스 문서를 주기적으로 업데이트해주세요.</p>
+                    <div class="accordion-content px-10">
+                        <blockquote class="p-4 bg-green-50 rounded-lg border-l-4 border-green-300"><p class="font-semibold text-green-800"><strong>핵심 개념:</strong> NotebookLM을 공유하면, 단순한 개인 비서를 넘어 <strong class="text-green-600">학교의 모든 정보를 24시간 안내하는 'AI 행정실'</strong>이 됩니다.</p></blockquote>
+                        <div class="text-center my-8"><a href="https://notebooklm.google.com" target="_blank" class="link-button">학교 챗봇 만들러 가기 →</a></div>
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">단계별 챗봇 구축 가이드</h3>
+                        <div class="space-y-8">
+                            <div><h4 class="font-semibold text-lg text-green-700">1. 챗봇의 지식 창고 채우기</h4><p class="mt-4 text-gray-700">'우리학교 AI 안내봇'이라는 새 노트북을 만들고, 학교의 모든 공용 문서를 업로드합니다.</p><ul class="list-disc list-inside mt-4 space-y-3 bg-gray-50 p-6 rounded-lg border"><li><strong>필수 자료:</strong> `학사일정표`, `학교생활규정`, `동아리 안내`, `교내 시상 계획`, `급식 식단표`, `도서관 이용 안내` 등</li></ul></div>
+                            <div><h4 class="font-semibold text-lg text-green-700">2. 챗봇 공유하고 함께 사용하기</h4><p class="mt-4 text-gray-700">노트북 우측 상단의 <code class="bg-gray-100 text-sm px-2 py-1 rounded-md">공유</code> 버튼을 눌러 '링크가 있는 모든 사용자가 액세스할 수 있음'으로 설정하고, 링크를 복사하여 학교 홈페이지나 학급 알림장에 공유합니다.</p></div>
+                            <div><h4 class="font-semibold text-lg text-green-700">3. 사용자별 맞춤 질문 예시</h4><div class="grid md:grid-cols-2 gap-6 mt-6"><div><p class="font-semibold text-base">선생님용 프롬프트</p><div class="prompt-box mt-2"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>올해 독서 관련 교내 시상 계획을 모두 알려주고, 각 상의 심사 기준을 요약해 줘.</div></div><div><p class="font-semibold text-base">학생/학부모용 프롬프트</p><div class="prompt-box mt-2"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>코딩 동아리에 가입하고 싶은데, 지원 방법과 담당 선생님 성함을 알려주세요.</div></div></div></div>
+                        </div>
+                        <div class="mt-8 pro-tip">
+                            <p class="font-semibold text-amber-800 flex items-center gap-2"><span>💡</span><span>Pro-Tip</span></p>
+                            <p class="mt-2 text-amber-900"><strong>챗봇의 정보는 살아있어야 해요!</strong> 학사일정이나 규정이 바뀔 때마다 NotebookLM에 업로드된 소스 문서를 주기적으로 업데이트해주세요.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
              <!-- One More Thing -->
             <section id="one-more-thing">
-                <div class="section-header">
-                    <div class="icon-wrapper bg-pink-100 text-pink-600">🎁</div>
-                    <span class="font-sunflower">One More Thing... 나만의 GPT 만들기</span>
-                </div>
-                 <div class="mt-6 content-card">
-                    <blockquote class="p-4 bg-pink-50 rounded-lg border-l-4 border-pink-300"><p class="font-semibold text-pink-800"><strong>핵심 개념:</strong> 오늘 배운 내용을 응용하여, 특정 목적에 완전히 특화된 <strong class="text-pink-600">'나만의 맞춤형 AI 비서'</strong>를 만들 수 있습니다. 예를 들어, '생활기록부 세특 작성 전문 GPT', '수준별 수학 문제 출제 전문 GPT'처럼요!</p></blockquote>
-                    <div class="text-center my-8"><a href="https://chat.openai.com/gpts/discovery" target="_blank" class="link-button">나만의 GPT 만들러 가기 →</a></div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">"세특 작성 비서" GPT 만들기 예시</h3>
-                    <p class="mb-6">ChatGPT 유료 버전을 사용하신다면, 'GPT 만들기(Create a GPT)' 메뉴에서 아래와 같이 간단한 지시만으로 나만의 AI 비서를 만들 수 있습니다.</p>
-                    <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>
-**역할 및 목표:** 당신은 중학교 국어 교사를 위한 생활기록부 '세부능력 및 특기사항' 작성 전문 AI 비서입니다. 학생의 활동 내용을 입력받으면, 학생의 성장과 역량이 돋보이도록 생기부 기재요령에 맞춰 인상적인 문구를 작성해야 합니다.
+                <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
+                        <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
+                            <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-pink-100 text-pink-600 text-xl">🎁</div>
+                            <span>One More Thing... 나만의 AI 비서 만들기</span>
+                        </div>
+                        <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+                    </div>
+                    <div class="accordion-content px-10">
+                        <blockquote class="p-4 bg-pink-50 rounded-lg border-l-4 border-pink-300"><p class="font-semibold text-pink-800"><strong>핵심 개념:</strong> Gemini와의 대화에서 특정 역할을 계속 유지하도록 하여, <strong class="text-pink-600">'나만의 맞춤형 AI 비서'</strong>를 만들 수 있습니다. '페르소나 프롬프트'를 활용해 보세요!</p></blockquote>
+                        <div class="text-center my-8"><a href="https://gemini.google.com" target="_blank" class="link-button">나만의 비서 만들러 가기 →</a></div>
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">"세특 작성 비서" 만들기 예시</h3>
+                        <p class="mb-6">Gemini와의 새 대화창에 아래 프롬프트를 먼저 입력해두면, 그 대화방은 이제부터 '세특 작성 전문 비서'가 됩니다.</p>
+                        <div class="prompt-box"><button onclick="copyPrompt(this)" class="copy-button"><span>복사</span></button>
+**역할 및 목표:** 지금부터 너는 중학교 국어 교사를 위한 생활기록부 '세부능력 및 특기사항' 작성 전문 AI 비서야. 내가 학생의 활동 내용을 입력하면, 너는 학생의 성장과 역량이 돋보이도록 생기부 기재요령에 맞춰 인상적인 문구를 작성해야 해.
 
-**제한사항:**
-- 항상 긍정적이고 객관적인 어조를 유지하세요.
-- 추상적인 표현 대신 구체적인 사례를 바탕으로 서술하세요.
-- 결과보다는 과정에서의 노력과 변화를 중심으로 작성하세요.
-- 500자 이내로 작성하세요.
+**규칙:**
+1. 항상 긍정적이고 객관적인 어조를 유지할 것.
+2. 추상적인 표현 대신 구체적인 사례를 바탕으로 서술할 것.
+3. 결과보다는 과정에서의 노력과 변화를 중심으로 작성할 것.
+4. 500자 이내로 작성할 것.
+5. 아래 [출력 형식]을 반드시 지킬 것.
 
-**출력 형식:**
-1.  **[핵심 역량 강조]** (예: 뛰어난 문해력과 비판적 사고 능력)
-2.  **[구체적 서술]** (활동 내용 기반 서술)
-3.  **[종합 의견]** (학생의 성장 가능성에 대한 종합적 평가)
+**[출력 형식]:**
+- **[핵심 역량 강조]** (예: 뛰어난 문해력과 비판적 사고 능력)
+- **[구체적 서술]** (활동 내용 기반 서술)
+- **[종합 의견]** (학생의 성장 가능성에 대한 종합적 평가)
+
+이제 내가 학생 정보를 입력할테니, 위 규칙에 따라 답변할 준비를 해.
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Closing Section -->
             <section id="closing">
-                <div class="section-header">
-                     <div class="icon-wrapper bg-rose-100 text-rose-600">👋</div>
-                    <span class="font-sunflower">마무리: AI는 최고의 파트너!</span>
-                </div>
-                <div class="mt-6 content-card">
-                    <p class="leading-relaxed">오늘 우리는 AI로 나만의 전문가 비서를 만들고, 글쓰기 시간을 줄이고, 모든 과정을 자동화하는 시스템, 그리고 학교 구성원 모두를 위한 챗봇까지 만들어봤어요!</p>
-                    <p class="mt-4 leading-relaxed">가장 중요한 점은, <strong class="font-semibold text-rose-500">AI는 선생님을 대체하는 게 아니라, 선생님이 교육의 본질에 더 집중하도록 돕는 최고의 파트너</strong>라는 사실이에요. 반복 업무는 AI에게 맡기고, 소중한 시간과 에너지를 우리 학생들에게 더 많이 사용해주세요!</p>
-                    <p class="mt-4 leading-relaxed font-semibold">궁금한 점이 있다면 편하게 질문해주세요!</p>
+                <div class="accordion-item bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                    <div class="accordion-title flex justify-between items-center p-6 border-b border-gray-200">
+                        <div class="flex items-center gap-4 text-2xl font-sunflower text-gray-800">
+                             <div class="flex-shrink-0 grid place-items-center w-10 h-10 rounded-full bg-rose-100 text-rose-600">👋</div>
+                            <span>마무리: AI는 최고의 파트너!</span>
+                        </div>
+                        <div class="accordion-arrow text-2xl text-gray-400">▼</div>
+                    </div>
+                    <div class="accordion-content px-10">
+                        <p class="leading-relaxed">오늘 우리는 AI로 나만의 전문가 비서를 만들고, 글쓰기 시간을 줄이고, 모든 과정을 자동화하는 시스템, 그리고 학교 구성원 모두를 위한 챗봇까지 만들어봤어요!</p>
+                        <p class="mt-4 leading-relaxed">가장 중요한 점은, <strong class="font-semibold text-rose-500">AI는 선생님을 대체하는 게 아니라, 선생님이 교육의 본질에 더 집중하도록 돕는 최고의 파트너</strong>라는 사실이에요. 반복 업무는 AI에게 맡기고, 소중한 시간과 에너지를 우리 학생들에게 더 많이 사용해주세요!</p>
+                        <p class="mt-4 leading-relaxed font-semibold">궁금한 점이 있다면 편하게 질문해주세요!</p>
+                    </div>
                 </div>
             </section>
         </div>
